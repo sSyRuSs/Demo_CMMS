@@ -17,6 +17,8 @@ import {
   X,
 } from "lucide-react";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export type View =
   | "dashboard"
   | "work-orders"
@@ -141,8 +143,8 @@ export function Sidebar({ currentView, onNavigate }: { currentView: View; onNavi
     >
       <div className="cmms-sidebar-header">
         <button className="cmms-logo-button" onClick={() => onNavigate("dashboard")} aria-label="Dashboard">
-          <Image src="/RoboMainBack.png" alt="ERP-CMMS" width={92} height={92} priority className="cmms-logo-full" />
-          <Image src="/LogoSimple.png" alt="ERP-CMMS" width={28} height={28} className="cmms-logo-compact" />
+          <Image src={`${basePath}/RoboMainBack.png`} alt="ERP-CMMS" width={92} height={92} priority className="cmms-logo-full" />
+          <Image src={`${basePath}/LogoSimple.png`} alt="ERP-CMMS" width={28} height={28} className="cmms-logo-compact" />
         </button>
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
